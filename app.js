@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
@@ -22,6 +23,7 @@ const User = mongoose.model("User", userSchema);
 
 // Parse incoming JSON requests
 app.use(bodyParser.json());
+app.use(cors());
 
 // Handle GET request for all users
 app.get("/users", async (req, res) => {
